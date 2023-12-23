@@ -1,9 +1,20 @@
 <script setup>
+import { onMounted } from 'vue';
+import { getDataPost, getDataGet} from '@/apis/index'
 defineProps({
   msg: {
     type: String,
     required: true
   }
+})
+
+onMounted(() => {
+  getDataGet({testid: 12}).then(res => {
+    console.log('testGet:', res)
+  })
+  getDataPost({testpost: 45}).then(res => {
+    console.log('testpost:', res)
+  })
 })
 </script>
 

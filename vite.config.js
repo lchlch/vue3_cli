@@ -26,30 +26,43 @@ export default defineConfig({
         ElementPlusResolver(),
         // Auto import icon components
         IconsResolver({
-          prefix: 'icon',
-        }),
+          prefix: 'icon'
+        })
       ],
-      dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+      dts: path.resolve(pathSrc, 'auto-imports.d.ts')
     }),
     Components({
       resolvers: [
         // Auto register icon components
         IconsResolver({
-          enabledCollections: ['ep'],
+          enabledCollections: ['ep']
         }),
         // Auto register Element Plus components
-        ElementPlusResolver(),
+        ElementPlusResolver()
       ],
-      dts: path.resolve(pathSrc, 'components.d.ts'),
+      dts: path.resolve(pathSrc, 'components.d.ts')
     }),
 
     Icons({
-      autoInstall: true,
-    }),
+      autoInstall: true
+    })
   ],
   resolve: {
     alias: {
       '@': pathSrc
+    }
+  },
+  server: {
+    host: '0.0.0.0',
+    hmr: true,
+    strictPort: false,
+    open: 'http://localhost:5173/home',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000/',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
     }
   }
 })
