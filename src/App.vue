@@ -5,12 +5,12 @@ import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <el-config-provider
-      :size="elementConfig.size"
-      :z-index="elementConfig.zIndex"
-      :locale="elementConfig.locale"
-    >
+  <el-config-provider
+    :size="elementConfig.size"
+    :z-index="elementConfig.zIndex"
+    :locale="elementConfig.locale"
+  >
+    <header>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
       <div class="wrapper">
@@ -21,10 +21,10 @@ import HelloWorld from './components/HelloWorld.vue'
           <RouterLink to="/about">About</RouterLink>
         </nav>
       </div>
-    </el-config-provider>
-  </header>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </el-config-provider>
 </template>
 
 <style scoped>

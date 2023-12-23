@@ -1,3 +1,8 @@
+<script setup>
+import { ref } from 'vue'
+const value = ref(new Date())
+</script>
+
 <template>
   <div class="about">
     <h1>This is an about page</h1>
@@ -15,6 +20,21 @@
       <i-ep-aim />
     </el-icon>
     <i-ep-aim />
+    <el-calendar v-model="value" />
+    <div>
+      <ul>
+        <li>{{ $t('navigateBar.hotspot') }}</li>
+        <li>{{ $t('navigateBar.experience') }}</li>
+        <li>{{ $t('navigateBar.focus') }}</li>
+        <li>{{ $t('navigateBar.recommend') }}</li>
+      </ul>
+      <ol>
+        <li>{{ $t('tabs.work') }}</li>
+        <li>{{ $t('tabs.private') }}</li>
+        <li>{{ $t('tabs.collect') }}</li>
+        <li>{{ $t('tabs.like') }}</li>
+      </ol>
+    </div>
   </div>
 </template>
 
