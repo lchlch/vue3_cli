@@ -84,3 +84,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@font-face {
+  font-family: 'Test Feijoa Bold';
+  font-weight: normal;
+  src: url('./fonts/test-feijoa-bold.woff2') format('truetype');
+}
+@font-face {
+  font-family: 'Roobert TRIAL';
+  font-weight: normal;
+  src: url('./fonts/RoobertTRIAL-Regular.woff2') format('truetype');
+}
+@font-face {
+  font-family: 'Roobert TRIAL Bold';
+  font-weight: normal;
+  src: url('./fonts/RoobertTRIAL-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roobert TRIAL Medium';
+  font-weight: normal;
+  src: url('./fonts/RoobertTRIAL-Medium.woff2') format('truetype');
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

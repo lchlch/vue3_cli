@@ -1,7 +1,73 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import { elementConfig } from '@/config/element-plus.conf'
-import HelloWorld from './components/HelloWorld.vue'
+import { useRoute } from 'vue-router'
+import { ref, reactive } from 'vue'
+import { useWindowSize } from '@vueuse/core'
+import { ElLoading } from 'element-plus'
+import { useIsPhoneStore } from './stores/isPhone'
+// import HelloWorld from './components/HelloWorld.vue
+
+const isPhone = ref(false)
+const windowWidth = ref('')
+
+import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import en from 'element-plus/dist/locale/en.mjs'
+
+const route = useRoute()
+const locale = reactive({ lang: zhCn })
+
+if (route.query.lang !== 'fr') {
+  locale.lang = en
+}
+
+const { width } = useWindowSize()
+windowWidth.value = width
+if (width.value < 1172 && width.value > 768) {
+  document.documentElement.style.fontSize = (16 * width.value) / 1440 + 'px'
+}
+if (width.value < 768) {
+  document.documentElement.style.fontSize = (16 * width.value) / 375 + 'px'
+}
+
+const isMobile = () => {
+  let flag = navigator.userAgent.match(
+    /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i
+  )
+  // const { width } = useWindowSize()
+  return !!flag
+  // return false;
+}
+const myIsPhone = useIsPhoneStore()
+const startRender = ref(false)
+const loading = ElLoading.service({
+  lock: true,
+  text: 'Loading',
+  background: 'rgba(0, 0, 0, 0.7)',
+  fullscreen: true
+})
+isPhone.value = isMobile()
+myIsPhone.setIsPhone(isPhone.value)
+startRender.value = true
+
+loading.close()
+
+window.onresize = () => {
+  return (() => {
+    isPhone.value = isMobile()
+    myIsPhone.setIsPhone(isPhone.value)
+    if (isPhone.value) {
+      document.body.style.setProperty('--main-width', '23.4375rem')
+    } else {
+      document.body.style.setProperty('--main-width', '73.25rem')
+    }
+  })()
+}
+if (isPhone.value) {
+  document.body.style.setProperty('--main-width', '23.4375rem')
+} else {
+  document.body.style.setProperty('--main-width', '73.25rem')
+}
 </script>
 
 <template>
@@ -10,18 +76,14 @@ import HelloWorld from './components/HelloWorld.vue'
     :z-index="elementConfig.zIndex"
     :locale="elementConfig.locale"
   >
-    <header>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
+    <!-- <header>
       <div class="wrapper">
-        <HelloWorld msg="You did it!" />
-
         <nav>
           <RouterLink to="/">Home</RouterLink>
           <RouterLink to="/about">About</RouterLink>
         </nav>
       </div>
-    </header>
+    </header> -->
 
     <RouterView />
   </el-config-provider>

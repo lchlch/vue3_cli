@@ -1,6 +1,6 @@
 const globalConfig = {
   // default chinese
-  lang: 'zhCn'
+  lang: 'en'
 }
 
 // set language of the web 

@@ -15,3 +15,7 @@ export const getQueryParam = (name, urls) => {
     .match(reg);
   return result === null ? result : result[2];
 };
+
+export const getAssetsFile = (url) => {
+  return new URL(`@/assets/pics/${url}`, import.meta.url).href;
+};

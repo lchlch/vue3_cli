@@ -1,0 +1,29 @@
+<svg width="541" height="29.999999999999996" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient y2="1" x2="0" y1="0.999909" x1="1" id="svg_41" spreadMethod="pad">
+   <stop stop-opacity="0" stop-color="#ff6a00"/>
+   <stop stop-color="#ff6a00" offset="0.49"/>
+   <stop stop-opacity="0" stop-color="#ff6a00" offset="1"/>
+  </linearGradient>
+  <linearGradient id="svg_42" x1="0" y1="0" x2="0" y2="0">
+   <stop stop-color="#none" offset="0"/>
+   <stop stop-color="#ff6a00" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="32" width="543" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <rect stroke="url(#svg_42)" id="svg_5" fill="url(#svg_41)" height="2.189205" width="203" x="168.29071" y="0.905645" stroke-opacity="0"/>
+  <line fill="none" stroke="#" x1="262.679873" stroke-width="null" fill-opacity="null" y1="2.2251232" x2="262.679876" y2="13.030188" id="svg_39" stroke-dasharray="2,2"/>
+  <line fill="none" stroke="#ff6a00" stroke-width="null" fill-opacity="null" x1="262.679876" y1="2.225112" x2="262.679876" y2="13.030188" id="svg_35" stroke-dasharray="2,2"/>
+  <line fill="none" stroke="#ff6a00" stroke-width="null" fill-opacity="null" x1="277.64777" y1="2.210219" x2="277.64777" y2="12.80343" id="svg_36" stroke-linejoin="null" stroke-linecap="null" stroke-dasharray="2,2"/>
+  <line fill="none" stroke-width="null" fill-opacity="null" x1="277.194229" y1="12.323014" x2="539.107125" y2="11.94108" id="svg_37" stroke-linejoin="null" stroke-linecap="null" stroke-dasharray="2,2" stroke="#ff6a00"/>
+  <line fill="none" stroke-width="null" fill-opacity="null" x1="1.003837" y1="13.003285" x2="262.916733" y2="12.621352" id="svg_38" stroke-linejoin="null" stroke-linecap="null" stroke-dasharray="2,2" stroke="#ff6a00"/>
+  <line fill="none" stroke="#ff6a00" stroke-width="null" fill-opacity="null" x1="1.391722" y1="12.475058" x2="1.391722" y2="21.54535" id="svg_39" stroke-linejoin="null" stroke-linecap="null" stroke-dasharray="2,2"/>
+  <line fill="none" stroke-width="null" fill-opacity="null" x1="539.052035" y1="11.676716" x2="539.052035" y2="20.747008" id="svg_40" stroke-linejoin="null" stroke-linecap="null" stroke-dasharray="2,2" stroke="#ff6a00"/>
+  <line stroke="#ff6a00" stroke-dasharray="2,2" stroke-linecap="null" stroke-linejoin="null" id="svg_2" y2="22.385975" x2="270.405231" y1="3.00254" x1="270.405231" fill-opacity="null" stroke-width="null" fill="none"/>
+ </g>
+</svg>
