@@ -5,7 +5,7 @@
       <div class="left">
         <div class="txt" id="apptest">
           <div class="toptitle">Uncompromising <br />design, extremely <br />easy-to-use</div>
-          <div class="allproducts">
+          <div class="allproducts" :id="`allproducts`">
             <div
               class="proditem"
               :class="`${isShow(item) ? 'active' : 'inactive'}`"
@@ -13,7 +13,7 @@
               :key="item.key"
               @click="() => changeBoxNew(item)"
             >
-              <div class="title">
+              <div class="title" :id="`code${item.key}`">
                 {{ item.name }}
                 <svg-icon
                   :name="isShow(item) ? 'upwhite' : 'downwhite'"
@@ -21,8 +21,13 @@
                 />
               </div>
               <div class="desc">{{ item.desc }}</div>
-              <div class="img" v-if="isShow(item)">
-                <img :src="images[item.key]" alt="" />
+              <div class="img">
+                <img
+                  :src="images[item.key]"
+                  alt=""
+                  style="transition: height 0.5s ease"
+                  :style="isShow(item) ? `height:${item.height}rem` : 'height: 0'"
+                />
               </div>
             </div>
           </div>
@@ -57,11 +62,25 @@ const isShow = computed(() => (item) => {
 const changeBoxNew = (item) => {
   const index = activeArray.indexOf(item.key)
   if (index !== -1) {
-    activeArray.splice(index, 1)
+    if (activeArray.length > 1) {
+      activeArray.splice(index, 1)
+    }
+
     // openKeys.delete(item.key);
   } else {
+    activeArray.splice(0)
     activeArray.push(item.key)
+    // goAnchor(`#code${item.key}`)
+    goAnchor(`#allproducts`)
   }
+}
+
+const goAnchor = (selector) => {
+  /*参数selector是id选择器（#anchor14）*/
+  document.querySelector(selector).scrollIntoView({
+    behavior: 'auto',
+    block: 'start'
+  })
 }
 
 // const changeBox = (item) => {
@@ -76,17 +95,23 @@ const products = reactive([
   {
     name: 'For common users',
     key: 0,
-    desc: 'Just submit your model or business related information'
+    desc: 'Just submit your model or business related information',
+    width: 343 / 16,
+    height: 540.4 / 16
   },
   {
     name: 'For expert or special needs:',
     key: 1,
-    desc: 'Control every configuration related to resources'
+    desc: 'Control every configuration related to resources',
+    width: 343 / 16,
+    height: 371.7 / 16
   },
   {
     name: 'Virtual cluster',
     key: 2,
-    desc: 'Manage your clusters through a WYSIWYG approach'
+    desc: 'Manage your clusters through a WYSIWYG approach',
+    width: 343 / 16,
+    height: 540.4 / 16
   }
 ])
 </script>
@@ -185,8 +210,9 @@ const products = reactive([
               background-color: #162e4c;
               border-radius: 1.625rem;
               img {
-                width: 100%;
-                object-fit: contain;
+                width: 375px;
+                object-fit: fill;
+                overflow: hidden;
               }
             }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="infowrapper">
+  <div class="infowrapper" v-bind="$attrs">
     <div class="title">
       {{ $t(props.title) }}
     </div>
@@ -9,7 +9,7 @@
         <div style="height: 1.25rem; width: 1.25rem; line-height: 0">
           <svg-icon name="Done" style="height: 1.25rem; width: 1.25rem"> </svg-icon>
         </div>
-        <div style="margin-left: 0.6rem">{{ $t(item.subtitle) }}</div>
+        <div style="margin-left: 0.6rem" class="my-subtitle">{{ $t(item.subtitle) }}</div>
       </div>
       <div class="desc">{{ $t(item.desc) }}</div>
     </div>
@@ -57,19 +57,22 @@ const props = defineProps({
   padding: 2rem 1rem 0 1rem;
   .title {
     font-size: 2.75rem;
-    font-family: Roobert TRIAL;
+    font-family: Test Feijoa Bold;
     font-weight: 750;
     line-height: 3.52rem;
   }
   .subtitle {
-    font-family: Roobert TRIAL Medium;
-
+    font-family: Roobert TRIAL;
     font-size: 1.125rem;
     line-height: 1.5rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     margin-top: 1.5rem;
+
+    .my-subtitle {
+      font-weight: 750;
+    }
   }
   .desc {
     font-size: 1rem;

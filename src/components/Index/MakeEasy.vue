@@ -179,7 +179,7 @@ const easys = reactive([
           text-align: left;
         }
         &_desc {
-          font-family: Roobert TRIAL;
+          font-family: Roobert TRIAL Medium;
           font-size: 0.8125rem;
           font-weight: 500;
           line-height: 1.375rem;

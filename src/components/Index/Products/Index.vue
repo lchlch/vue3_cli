@@ -322,6 +322,8 @@ const orderClass = computed(() => (props.deriction > 0 ? 'order' : ''))
               font-weight: 750;
               line-height: 1.4219rem;
               text-align: left;
+              display: flex;
+              align-items: center;
             }
 
             .desc {

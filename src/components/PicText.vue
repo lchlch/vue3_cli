@@ -130,6 +130,7 @@ const orderClass = computed(() => (props.deriction == 0 || isPhone.value ? '' : 
         }
         .subtitle {
           margin-top: 1.5rem !important;
+          font-family: Roobert TRIAL Media !important
         }
       }
     }

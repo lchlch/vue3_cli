@@ -4,7 +4,7 @@
       <div class="left">
         <div class="txt" id="apptest">
           <div class="toptitle">We offer products to maximize your <span>productivity</span></div>
-          <div class="allproducts">
+          <div class="allproducts" :id="`allproducts1`">
             <div
               class="proditem"
               :class="`${isShow(item) ? 'active' : 'inactive'}`"
@@ -12,9 +12,9 @@
               :key="item.key"
               @click="() => changeBoxNew(item)"
             >
-              <div class="line"></div>
+              <div class="line" :id="`product${item.key}`"></div>
               <div class="title">
-                <div>
+                <div class="title-icon">
                   <svg-icon
                     :name="`product${item.key + 1}`"
                     style="width: 1.5625rem; height: 1.4218rem; margin-right: 0.75rem"
@@ -28,27 +28,35 @@
                 />
               </div>
               <div class="desc">{{ item.desc }}</div>
-              <div class="infos" id="apptest" :key="activeNames.value">
-                <div class="infosAni" v-if="isShow(item)">
-                  <div v-if="item.key === 0">
-                    <info-item
-                      v-for="(item, key) in infos"
-                      :title="`${infoTitle}.${key}.name`"
-                      :infos="getInfos(item, key)"
-                      class="infos-item"
-                      :key="key"
-                    ></info-item>
-                  </div>
-
-                  <svg-icon
-                    v-if="item.key !== 0"
-                    :name="productsInfos[item.key].svgInfo.name"
-                    :style="`width: ${productsInfos[item.key].svgInfo.w}rem; height: ${
-                      productsInfos[item.key].svgInfo.h
-                    }rem`"
-                  >
-                  </svg-icon>
+              <div
+                class="infos"
+                id="apptest"
+                :key="activeNames.value"
+                :style="!isShow(item) ? 'background: #F9F9F6' : ''"
+              >
+                <div
+                  style="transition: height 0.5s ease"
+                  class="infosAni"
+                  :class="item.key === 0 && isShow(item) ? 'infosHeight' : 'infosHeightNone'"
+                >
+                  <info-item
+                    v-for="(item, key) in infos"
+                    :title="`${infoTitle}.${key}.name`"
+                    :infos="getInfos(item, key)"
+                    class="infos-item"
+                    :key="key"
+                  ></info-item>
                 </div>
+
+                <svg-icon
+                  v-if="item.key !== 0"
+                  :name="productsInfos[item.key].svgInfo.name"
+                  style="transition: height 0.5s ease"
+                  :style="`width: ${productsInfos[item.key].svgInfo.w}rem; height: ${
+                    isShow(item) ? productsInfos[item.key].svgInfo.h : 0
+                  }rem`"
+                >
+                </svg-icon>
               </div>
             </div>
           </div>
@@ -80,11 +88,25 @@ const isShow = computed(() => (item) => {
 const changeBoxNew = (item) => {
   const index = activeArray.indexOf(item.key)
   if (index !== -1) {
-    activeArray.splice(index, 1)
+    if (activeArray.length > 1) {
+      activeArray.splice(index, 1)
+    }
     // openKeys.delete(item.key);
   } else {
+    activeArray.splice(0)
     activeArray.push(item.key)
+    // goAnchor(`#allproducts1`)
+    goAnchor(`#product${item.key}`)
+    console.log('goto', `product${item.key - 1}`)
   }
+}
+
+const goAnchor = (selector) => {
+  /*参数selector是id选择器（#anchor14）*/
+  document.querySelector(selector).scrollIntoView({
+    behavior: 'auto',
+    block: 'end'
+  })
 }
 
 const activeItem = ref(0)
@@ -313,6 +335,11 @@ const makeefficiency = reactive({
               display: flex;
               justify-content: space-between;
               align-items: center;
+
+              .title-icon {
+                display: flex;
+                align-items: center;
+              }
             }
 
             .desc {
@@ -327,22 +354,34 @@ const makeefficiency = reactive({
               position: relative;
               border-radius: 1.625rem;
               margin: 1.5rem -1rem 0 -1rem;
-              background: rgba(255, 255, 255, 0.8);
+              background: rgba(255, 255, 255);
               backdrop-filter: blur(17.049999237060547px);
               box-sizing: border-box;
-              box-shadow:
-                0.05rem 0.05rem 0.05rem #00000014,
-                0.05rem -0.05rem 0.05rem #00000014,
-                -0.05rem 0.05rem 0.05rem #00000014,
-                -0.05rem -0.05rem 0.05rem #00000014;
+              // box-shadow:
+              //   0.05rem 0.05rem 0.05rem #00000014,
+              //   0.05rem -0.05rem 0.05rem #00000014,
+              //   -0.05rem 0.05rem 0.05rem #00000014,
+              //   -0.05rem -0.05rem 0.05rem #00000014;
               transition: height 0.5s;
               overflow: hidden;
+
+              .infosAni {
+                transition: all 0.5s;
+                overflow: hidden;
+              }
 
               .infos-item:not(:first-child) {
                 margin-top: 1rem;
               }
               .infos-item:last-child {
                 padding-bottom: 2rem;
+              }
+
+              .infosHeight {
+                height: 41.125rem;
+              }
+              .infosHeightNone {
+                height: 0;
               }
             }
 

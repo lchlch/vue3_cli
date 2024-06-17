@@ -4,8 +4,8 @@
       <div class="toptitle">TurboAI focus on keeping you <span>focus</span></div>
       <div class="bottom">
         <div class="txt" v-for="(item, idx) in ais" :key="idx" @click="() => changeBoxNew(item)">
-          <div class="box" :class="isShow(item) ? 'boxactive' : 'boxinactive'">
-            <div class="line"></div>
+          <div class="box" :class="isShow(item) ? 'boxactive' : 'boxinactive'" id="focuson">
+            <div class="line" :id="`focuson${idx}`"></div>
             <div class="title">
               {{ item.title || 'title' }}
               <svg-icon
@@ -25,9 +25,13 @@
           </div>
           <div class="image" :style="`${idx !== item.key ? 'margin-top: 0rem' : ''}`">
             <img
-              v-show="isShow(item)"
               :src="illspng[idx].src"
-              :style="`width: ${illspng[idx].w}rem;`"
+              style="transition: height 0.5s ease"
+              :style="
+                isShow(item)
+                  ? `height:${illspng[idx].h}rem; width: ${illspng[idx].w}rem`
+                  : `height: 0; width: ${illspng[idx].w}rem`
+              "
               alt=""
             />
           </div>
@@ -39,7 +43,7 @@
 
 <script setup>
 import { useIsPhoneStore } from '@/stores/isPhone'
-import { computed, reactive } from 'vue';
+import { computed, reactive } from 'vue'
 
 const isPhone = useIsPhoneStore().isPhone
 
@@ -52,11 +56,24 @@ const isShow = computed(() => (item) => {
 const changeBoxNew = (item) => {
   const index = activeArray.indexOf(item.key)
   if (index !== -1) {
-    activeArray.splice(index, 1)
+    if (activeArray.length > 1) {
+      activeArray.splice(index, 1)
+    }
+    // activeArray.splice(index, 1)
     // openKeys.delete(item.key);
   } else {
+    activeArray.splice(0)
     activeArray.push(item.key)
+    goAnchor(`#focuson${item.key}`)
+    // goAnchor(`#focuson`)
   }
+}
+const goAnchor = (selector) => {
+  /*参数selector是id选择器（#anchor14）*/
+  document.querySelector(selector).scrollIntoView({
+    behavior: 'auto',
+    block: 'center'
+  })
 }
 
 // const changeBox = (item) => {
@@ -70,9 +87,9 @@ const changeBoxNew = (item) => {
 // }
 
 const illspng = reactive([
-  { src: '/Illustration1.png', w: 343 / 16 },
-  { src: '/Illustration2.png', w: 343 / 16 },
-  { src: '/Illustration3.png', w: 343 / 16 }
+  { src: '/Illustration1.png', w: 343 / 16, h: 208.67 / 16 },
+  { src: '/Illustration2.png', w: 343 / 16, h: 207.896 / 16 },
+  { src: '/Illustration3.png', w: 343 / 16, h: 236.3 / 16 }
 ])
 
 const ais = reactive([

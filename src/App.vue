@@ -28,6 +28,7 @@ if (width.value < 1172 && width.value > 768) {
 }
 if (width.value < 768) {
   document.documentElement.style.fontSize = (16 * width.value) / 375 + 'px'
+  document.querySelector('html').style.fontSize = (16 * width.value) / 375 + 'px'
 }
 
 const isMobile = () => {

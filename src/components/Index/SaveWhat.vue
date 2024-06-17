@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-</template>
+</template>ƒ
 
 <script setup>
 import { useIsPhoneStore } from '@/stores/isPhone'
@@ -167,15 +167,18 @@ const ethernet = reactive({
           line-height: 80.9px;
           text-align: left;
           color: #0057ff;
+          width: 100%;
         }
         .title {
-          font-size: 1.5rem;
+          font-size: 1.4rem;
           font-weight: 700;
           color: #000;
+          width: 100%;
           font-family: Test Feijoa Bold;
+          text-align: left;
         }
         .desc {
-          font-family: Roobert TRIAL;
+          font-family: Roobert TRIAL Medium;
           font-size: 0.8125rem;
           font-weight: 500;
           line-height: 1.375rem;

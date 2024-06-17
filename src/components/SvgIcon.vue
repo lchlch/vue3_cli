@@ -2,11 +2,28 @@
   <!-- <svg :class="svgClass" v-bind="$attrs" :style="{ color: color }">
     <use :xlink:href="iconName" />
   </svg> -->
-  <img alt="Vue logo" class="logo" :src="`svgs/${props.name}.svg`" v-bind="$attrs" />
+  <!-- <img alt="Vue logo" class="logo" :src="`svgs/${props.name}.svg`" v-bind="$attrs" /> -->
+  <img
+    alt="Vue logo"
+    class="logo"
+    :src="`svgs/${props.name}.svg`"
+    v-bind="$attrs"
+    v-if="!isPhone || !isiOS"
+  />
+  <object
+    type="image/svg+xml"
+    :data="`/svgs/${props.name}.svg`"
+    v-bind="$attrs"
+    v-if="isPhone && isiOS"
+  ></object>
 </template>
 
 <script setup>
 import { computed, ref } from 'vue'
+import { useIsPhoneStore } from '@/stores/isPhone'
+
+const isPhone = useIsPhoneStore().isPhone
+const isiOS = !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
 
 const props = defineProps({
   name: {

@@ -22,23 +22,22 @@ const isPhone = myIsPhone.isPhone
   <div class="main">
     <app-header :isPhone="isPhone"></app-header>
     <index-slogan-page></index-slogan-page>
-    <svg-icon
-      name="split"
-      style="width: 100%; height: 16.375rem"
-      :style="isPhone ? ' height: 4rem' : ''"
-    >
-    </svg-icon>
+    <svg-icon name="split" v-if="!isPhone" style="width: 100%; height: 16.375rem"> </svg-icon>
+    <svg-icon v-if="isPhone" name="splitphone" style="width: 100%; height: 4rem"> </svg-icon>
 
     <index-focus-on v-if="!isPhone"></index-focus-on>
     <index-focus-on-phone v-if="isPhone"></index-focus-on-phone>
 
-    <svg-icon
+    <svg-icon id="productsId" name="split" v-if="!isPhone" style="width: 100%; height: 16.375rem"> </svg-icon>
+    <svg-icon id="productsId" v-if="isPhone" name="splitphone" style="width: 100%; height: 4rem"> </svg-icon>
+
+    <!-- <svg-icon
       name="split"
       style="width: 100%; height: 16.375rem"
       :style="isPhone ? ' height: 4rem' : ''"
-      id="productsId"
+      
     >
-    </svg-icon>
+    </svg-icon> -->
 
     <index-products v-if="!isPhone"></index-products>
     <index-products-phone v-if="isPhone"></index-products-phone>
@@ -47,12 +46,8 @@ const isPhone = myIsPhone.isPhone
     <index-code-phone v-if="isPhone"></index-code-phone>
 
     <index-make-easy></index-make-easy>
-    <svg-icon
-      name="split"
-      style="width: 100%; height: 16.375rem"
-      :style="isPhone ? ' height: 4rem' : ''"
-    >
-    </svg-icon>
+    <svg-icon name="split" v-if="!isPhone" style="width: 100%; height: 16.375rem"> </svg-icon>
+    <svg-icon v-if="isPhone" name="splitphone" style="width: 100%; height: 4rem"> </svg-icon>
 
     <index-save-what></index-save-what>
     <index-footer></index-footer>

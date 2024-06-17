@@ -9,7 +9,7 @@
         <div style="height: 1.25rem; width: 1.25rem; line-height: 0">
           <svg-icon name="Done" style="height: 1.25rem; width: 1.25rem"> </svg-icon>
         </div>
-        <div style="margin-left: 0.6rem">{{ $t(item.subtitle) }}</div>
+        <div style="margin-left: 0.6rem" class="my-subtitle">{{ $t(item.subtitle) }}</div>
       </div>
       <div class="desc">{{ $t(item.desc) }}</div>
     </div>
@@ -60,7 +60,7 @@ const props = defineProps({
   box-sizing: border-box;
   .title {
     font-size: 2.75rem;
-    font-family: Roobert TRIAL;
+    font-family: Test Feijoa Bold;
     font-weight: 750;
     line-height: 3.52rem;
   }
@@ -73,6 +73,10 @@ const props = defineProps({
     display: flex;
     align-items: center;
     margin-top: 1.5rem;
+
+    .my-subtitle {
+      font-weight: 750;
+    }
   }
   .desc {
     font-size: 1rem;

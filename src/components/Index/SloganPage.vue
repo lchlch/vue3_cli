@@ -4,10 +4,10 @@ import OpenVideo from './OpenVideo.vue'
 // import { fa } from "element-plus/es/locale";
 import { ref, reactive } from 'vue'
 import PicText from '@/components/PicText.vue'
-import Illustration_Pie from '@/assets/pics/Illustration_Pie.png';
+import Illustration_Pie from '@/assets/pics/Illustration_Pie.png'
 import { useIsPhoneStore } from '@/stores/isPhone'
-import { useEmails } from "@/stores/emails"
-const emails = useEmails().emails;
+import { useEmails } from '@/stores/emails'
+const emails = useEmails().emails
 
 const myIsPhone = useIsPhoneStore()
 
@@ -29,9 +29,15 @@ const handleClose = () => {
   videoOpen.value = false
 }
 
+function isSafari() {
+  return /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor)
+}
+
+const safari = ref(isSafari())
+
 // const isPhone = useIsPhone();
 // const isPhone = ref(false)
-const leftStyle = isPhone? '' : 'padding: 7.5rem 0 2.125rem 12.3765rem'
+const leftStyle = isPhone ? '' : 'padding: 7.5rem 0 2.125rem 12.3765rem'
 
 const makeefficiency = reactive({
   title: 'Make everything simple and efficient.',
@@ -60,7 +66,11 @@ const makeefficiency = reactive({
     <div class="index-content" id="apptest" :class="isPhone ? 'phonecontent' : ''">
       <div class="index-content-up" :class="isPhone ? 'phoneup' : ''">
         <div class="index-content-up-slogan" :class="isPhone ? 'phoneslogan' : ''">
-          <div class="index-content-up-slogan__title" :class="isPhone ? 'phonetitle' : ''">
+          <div
+            class="index-content-up-slogan__title"
+            :class="isPhone ? 'phonetitle' : ''"
+            :style="safari && !isPhone ? 'font-size: 5rem;' : ''"
+          >
             {{ $t('index.slogan.title') }}
           </div>
         </div>
@@ -72,6 +82,11 @@ const makeefficiency = reactive({
             <a :href="`mailto:${emails.name1}?subject=contact us`">
               <div class="index-content-up-btn-s__contact">
                 {{ $t('index.slogan.contactBtn') }}
+                <svg-icon
+                  name="arrow-white"
+                  style="width: 1.125rem; height: 1rem; margin-left: 0.8125rem"
+                >
+                </svg-icon>
               </div>
             </a>
             <div class="index-content-up-btn-s__video" @click="openVideo">
