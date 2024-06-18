@@ -13,6 +13,9 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 // import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
+import viteCompression from 'vite-plugin-compression'
+
+import viteImagemin from 'vite-plugin-imagemin'
 
 const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 
@@ -55,8 +58,73 @@ export default defineConfig({
       dts: path.resolve(pathSrc, 'components.d.ts')
     }),
 
+    viteCompression({
+      verbose: true,
+      disable: false,
+      algorithm: 'gzip',
+      ext: '.gz'
+    }),
+
     Icons({
       autoInstall: true
+    }),
+    viteImagemin({
+      verbose: true,
+      gifsicle: {
+        optimizationLevel: 7,
+        interlaced: false
+      },
+      optipng: {
+        optimizationLevel: 7
+      },
+      mozjpeg: {
+        quality: 20
+      },
+      pngquant: {
+        quality: [0.8, 0.9],
+        speed: 4
+      },
+      svgo: {
+        plugins: [
+          // {
+          //   name: 'removeViewBox'
+          // },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          },
+          {
+            name: 'removeAttrs',
+            params: {
+              attrs: '(fill|stroke):(?!none)'
+            }
+          },
+          'removeDoctype',
+          'removeXMLProcInst',
+          'removeComments',
+          'removeMetadata',
+          'removeDesc',
+          'removeUselessDefs',
+          'removeEditorsNSData',
+          'removeEmptyAttrs',
+          'removeHiddenElems',
+          'removeEmptyText',
+          'removeEmptyContainers',
+          'removeStyleElement',
+          'removeUnknownsAndDefaults',
+          'removeNonInheritableGroupAttrs',
+          'removeUselessStrokeAndFill',
+          'removeUnusedNS',
+          'cleanupIDs',
+          'cleanupEnableBackground',
+          'cleanupListOfValues',
+          'mergePaths',
+          'convertStyleToAttrs',
+          'convertColors',
+          'cleanupNumericValues',
+          'sortAttrs'
+        ]
+      }
     })
   ],
   resolve: {
@@ -69,10 +137,10 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            return id.toString().split('node_modules/')[1].split('/')[0].toString()
           }
-          if(id.includes('svg')){
-            return "svg-icons"
+          if (id.includes('svg')) {
+            return 'svg-icons'
           }
         }
       }
