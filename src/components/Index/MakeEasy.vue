@@ -77,7 +77,7 @@ const easys = reactive([
   },
   {
     id: 3,
-    title: 'Keep it Simple and Stupid',
+    title: 'Keep It Simple and Stupid',
     desc: 'Continuously innovating and abstracting information around complete end-to-end systems of software and hardware, simplifying the threshold for using business platforms on the system.',
     picInfo: {
       src: '/efficiency3.png',
