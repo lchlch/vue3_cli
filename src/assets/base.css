@@ -110,6 +110,13 @@ body {
   src: url('./fonts/RoobertTRIAL-Medium.woff2') format('truetype');
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #F9F9F6; /* 设置背景颜色为白色 */
+    color: black; /* 设置文本颜色为黑色 */
+  }
+}
+
 a {
   text-decoration: none;
   color: inherit;

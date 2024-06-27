@@ -43,7 +43,7 @@ const makeefficiency = reactive({
   title: 'Make everything simple and efficient.',
   id: 0,
   subtitle:
-    'Abstracting software and hardware such as computing, networking, and storage, using resources and models as scheduling units, and presenting them to the public in a standardized manner; So as to shield the complexity of AI infrastructure and enable users to use WYSIWYG.',
+    'Simplify and streamline software and hardware, like computing, networking, and storage. Use resources and models as scheduling units, presenting them to the public in a standardized way. This shields the complexity of AI infrastructure and enable users to use WYSIWYG interfaces.',
   desc: 'Users need the minimum knowledge related to infrastructure, can also obtain the necessary resources, and complete the configuration of the basic environment. At runtime, adjustments can also be made to the virtual cluster to meet the needs of future changes in the model or business.',
   picInfo: {
     name: Illustration_Pie,
@@ -69,7 +69,7 @@ const makeefficiency = reactive({
           <div
             class="index-content-up-slogan__title"
             :class="isPhone ? 'phonetitle' : ''"
-            :style="safari && !isPhone ? 'font-size: 5rem;' : ''"
+            :style="safari && !isPhone ? 'font-size: 3.8rem;' : ''"
           >
             {{ $t('index.slogan.title') }}
           </div>
@@ -166,7 +166,7 @@ const makeefficiency = reactive({
       .phoneslogan {
         width: 100%;
         .phonetitle {
-          font-size: 3.125rem;
+          font-size: 2.8rem;
           line-height: 3.25rem;
           text-align: left;
         }
@@ -195,7 +195,7 @@ const makeefficiency = reactive({
         &__title {
           color: #000;
           font-family: 'Roobert TRIAL Bold';
-          font-size: 5.1875rem;
+          font-size: 3.8rem;
           font-weight: 900;
           line-height: 6.25rem; /* 116.981% */
         }

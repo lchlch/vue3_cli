@@ -153,22 +153,22 @@ const products = reactive([
   {
     name: 'Bare Metal',
     key: 0,
-    desc: 'We empower our clients to realize the benefits of bare-metal without the burden of managing infrastructure.'
+    desc: 'We empower our clients to enjoy the advantagesof bare-metal infrastructure without the hassle of managing it themselves.'
   },
   {
     name: 'IaaS on GPU',
     key: 1,
-    desc: 'Use your own cluster like using a supercomputer, without the need for any experience with IaaS and distributed system.'
+    desc: 'Utilize your own cluster like a supercomputer, without requiring any expertise in IaaS or distributed system.'
   },
   {
     name: 'PaaS on GPU',
     key: 2,
-    desc: 'The ultra-high product computing density and performance ratio are due to our continuous expansion of the GPU capabilities accumulated in the AI field to existing PaaS layer products.'
+    desc: 'The ultra-high computing density and performance ratio result from our ongoing expansion of GPU capabilities accumulated in the AI field to our existing PaaS layer products.'
   },
   {
     name: 'AI Application',
     key: 3,
-    desc: 'The complete software libraries and toolsets allow us to better support model fine-tuning and inference, Agent development and deployment, and application upgrades and transformations with AI capabilities.'
+    desc: 'Our comprehensive software libraries and toolsets enable us to enhance support for model fine-tuning and inference, agent development and deployment, and application upgrades and transformations with AI capabilities.'
   }
 ])
 
@@ -234,7 +234,7 @@ const makeefficiency = reactive({
   title: 'A whole distributed OS and supporting toolchain',
   id: 0,
   subtitle:
-    'Abstracting software and hardware such as computing, networking, and storage, using resources and models as scheduling units, and presenting them to the public in a standardized manner; So as to shield the complexity of AI infrastructure and enable users to use WYSIWYG.',
+    'Abstracting software and hardware components like computing, networking, and storage into resources and models as scheduling units, and presenting them to the public in a standardized manner, shields the complexity of AI infrastructure and enables users to utilize WYSIWYG interfaces.',
   picInfo: {
     name: '/oschain.png',
     w: 478 / 16,

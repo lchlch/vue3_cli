@@ -61,7 +61,7 @@ const ethernet = reactive({
   title: 'Embrace Ethernet in every field',
   id: 0,
   subtitle:
-    'We have gradually integrated computing, storage, and data into one Ethernet, greatly simplifying the network architecture and improving network utilization.',
+    'We have integrated computing, storage, and data into a single Ethernet, progressively simplifying network architecture and enhancing network utilization.',
   picInfo: {
     name: '/Ethernet.png',
     w: isPhone ? 343 / 16 : 539 / 16,

@@ -11,8 +11,8 @@ export default {
   },
   index: {
     slogan: {
-      title: "The next cloud based on GPU",
-      desc: "The network of cycling routes across TurboAI are easy to use, efficient, and ultimate performance.",
+      title: "The next-gen cloud based on GPU",
+      desc: "The network of cycling routes across TurboAI are easy to use, efficient, and offering ultimate performance.",
       contactBtn: "Contact us",
       videoBtn: "Watch the video",
       meetBtn: "Meet our customers"

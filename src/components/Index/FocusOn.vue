@@ -1,7 +1,7 @@
 <template>
   <div class="contentbg" :id="props.id">
     <div id="apptest" :class="contentClass">
-      <div class="toptitle">TurboAI focus on keeping you <span>focus</span></div>
+      <div class="toptitle">TurboAI focuses on keeping you <span>focused</span></div>
       <div :class="`top ${orderClass}`">
         <div class="img">
           <swiper
@@ -87,19 +87,19 @@ const illspng = reactive([
 
 const ais = reactive([
   {
-    title: 'AI Model Develop',
-    subtitle: 'No infrastructure skills required',
-    desc: 'Make user focus on acquisition and governance of training data, development and debugging of high customer value models, modeling and evaluation of model implementation effectiveness.'
+    title: 'AI Model Development',
+    subtitle: 'No infrastructure skills are required',
+    desc: 'Ensure the user focuses on acquiring and governing training data, developing and debugging high-value customer models, and modeling and evaluating of effectiveness of model implementations.'
   },
   {
     title: 'AI Model Service',
     subtitle: 'No need to plan resource demand',
-    desc: 'Make user focus on the actual application effect of the model, various indicators of the model itself during operation, customer repurchase rate, positive and negative feedback from users, and other customer value indicators.'
+    desc: 'Encourage the user to focus on the practical impact of the model, assess various indicators of the model itself during operation, monitor customer repurchase rates, gather both positive and negative user feedback, and consider other customer value metrics.'
   },
   {
-    title: 'AI App Develop',
-    subtitle: 'No need to focus on AI capability and non business functions ',
-    desc: 'Make user focus on the business itself of application services, how AI can better empower the business, the collaboration between different applications and AI, and the transformation of user value.'
+    title: 'AI App Development',
+    subtitle: 'No need to focus on AI capability and non-business functions ',
+    desc: 'Encourage the user to focus on the core business aspects of application services, how AI can better empower the business capabilities, the synergy between various applications and AI, and the enhancement of user value through transformation.'
   }
 ])
 

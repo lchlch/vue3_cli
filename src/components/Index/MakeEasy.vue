@@ -48,7 +48,7 @@ const easys = reactive([
   {
     id: 0,
     title: 'Using as a super computer',
-    desc: 'Always maintain the simplicity of using complex systems and maximize the WYSIWYG of the operational process.',
+    desc: 'Always prioritize simplicity when using complex systems and maximize the WYSIWYG nature of the operational process.',
     picInfo: {
       src: '/efficiency0.png',
       width: isPhone ? '21.4375' : '33.25',
@@ -58,7 +58,7 @@ const easys = reactive([
   {
     id: 1,
     title: 'Software and hardware collaboration',
-    desc: 'We provide the most advanced GPUs and a system platform that maximizes GPU performance.',
+    desc: 'We offer the most advanced GPUs and a system platform designed to  maximize GPU performance.',
     picInfo: {
       src: '/efficiency1.png',
       width: isPhone ? '21.4375' : '33.25',
@@ -68,7 +68,7 @@ const easys = reactive([
   {
     id: 2,
     title: 'Minimize manpower',
-    desc: 'From installation to operation, a large number of optimized toolchains have been implemented to achieve over 70% automated monitoring and operation, significantly reducing manpower requirements.',
+    desc: 'From installation to operation, we have implemented a wide array of optimized toolchains that achieve over 70% automated monitoring and operation, thereby significantly reducing manpower requirements.',
     picInfo: {
       src: '/efficiency2.png',
       width: isPhone ? '21.4375' : '33.25',
@@ -78,7 +78,7 @@ const easys = reactive([
   {
     id: 3,
     title: 'Keep It Simple and Stupid',
-    desc: 'Continuously innovating and abstracting information around complete end-to-end systems of software and hardware, simplifying the threshold for using business platforms on the system.',
+    desc: 'Continuously innovating and abstracting information across complete end-to-end software and hardware systems, we simplify the threshold for business to utilize our platforms.',
     picInfo: {
       src: '/efficiency3.png',
       width: isPhone ? '21.4375' : '33.25',
