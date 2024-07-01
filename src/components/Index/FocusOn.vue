@@ -80,9 +80,9 @@ const changeBox = (item) => {
 }
 
 const illspng = reactive([
-  { src: '/Illustration1.png', w: 1172 / 16, h: 713 / 16 },
-  { src: '/Illustration2.png', w: 1110.24 / 16, h: 672.93 / 16 },
-  { src: '/Illustration3.png', w: 927 / 16, h: 638 / 16 }
+  { src: '/Illustration1.png', w: (1172 / 16) * 0.6, h: (713 / 16) * 0.6 },
+  { src: '/Illustration2.png', w: (1110.24 / 16) * 0.6, h: (672.93 / 16) * 0.6 },
+  { src: '/Illustration3.png', w: (927 / 16) * 0.6, h: (638 / 16) * 0.6 }
 ])
 
 const ais = reactive([
@@ -145,7 +145,7 @@ const orderClass = computed(() => (props.deriction > 0 ? 'order' : ''))
 }
 .contentbg {
   width: 100%;
-  height: 72.1875rem;
+  height: 52rem;
   display: flex;
   justify-content: center;
   align-items: center;
