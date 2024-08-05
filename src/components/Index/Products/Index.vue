@@ -153,7 +153,7 @@ const products = reactive([
   {
     name: 'Bare Metal',
     key: 0,
-    desc: 'We empower our clients to enjoy the advantagesof bare-metal infrastructure without the hassle of managing it themselves.'
+    desc: 'We empower our clients to enjoy the advantages of bare-metal infrastructure without the hassle of managing it themselves.'
   },
   {
     name: 'IaaS on GPU',
